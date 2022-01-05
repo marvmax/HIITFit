@@ -1,19 +1,20 @@
 import SwiftUI
 
-struct RatingViews: View {
+struct RatingView: View {
   var body: some View {
     HStack {
-      ForEach(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/) { item in
+      ForEach(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/) { _ in
         Image(systemName: "waveform.path.ecg")
           .foregroundColor(.gray)
       }
     }
+    .font(.largeTitle)
   }
 }
 
 struct RatingViews_Previews: PreviewProvider {
   static var previews: some View {
-    RatingViews()
+    RatingView()
       .previewLayout(.sizeThatFits)
   }
 }
