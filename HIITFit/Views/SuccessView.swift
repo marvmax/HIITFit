@@ -10,12 +10,7 @@ struct SuccessView: View {
         Text("High Five!")
           .font(.largeTitle)
           .fontWeight(.bold)
-        let message = """
-Good job conmpleting all four exercises!
-Remember tomorrow's another day.
-So eat well and some rest.
-"""
-        Text(message)
+        Text(SuccessView.message)
           .foregroundColor(Color.gray)
           .multilineTextAlignment(.center)
         Spacer()
@@ -30,4 +25,12 @@ struct SuccessView_Previews: PreviewProvider {
     static var previews: some View {
         SuccessView()
     }
+}
+
+extension SuccessView {
+  static let message = """
+Good job conmpleting all four exercises!
+Remember tomorrow's another day.
+So eat well and some rest.
+"""
 }
