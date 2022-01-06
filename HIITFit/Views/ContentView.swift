@@ -5,10 +5,12 @@ struct ContentView: View {
     TabView {
       WelcomeView()
       ForEach(0..<Exercise.exercises.count) { index in
-        Text(Exercise.exercises[index].exerciseName)
+//        Text(Exercise.exercises[index].exerciseName)
+        ExerciseView(index: index)
       }
       ForEach(0..<Exercise.exercises.count) { index in
-        Text(Exercise.exercises[index].videoName)
+//        Text(Exercise.exercises[index].videoName)
+        ExerciseView(index: index)
       }
     }
     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
