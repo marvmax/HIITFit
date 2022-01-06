@@ -2,7 +2,41 @@ import SwiftUI
 
 struct WelcomeView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+      ZStack {
+        VStack {
+          HStack(alignment: .bottom) {
+            VStack(alignment: .leading) {
+              Text("Get Fit")
+                .font(.largeTitle)
+              Text("with high intensity interval training.")
+                .font(.headline)
+            }
+            Image("step-up")
+//              .resizable()
+//              .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+//              .frame(width: 240.0, height: 240.0)
+              .resizedToFill(width: 240, height: 240)
+              .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+          }
+          Button(action: {}) {
+            Text("Get Started")
+            Image(systemName: "arrow.right.circle")
+          }
+          .padding()
+          .background(
+            RoundedRectangle(cornerRadius: 20)
+              .stroke(lineWidth: 2))
+        }
+        VStack {
+          HeaderView(titleText: "Welcome")
+          Spacer()
+          Button("History") {}
+          .padding()
+        }
+//        .background(
+//          RoundedRectangle(cornerRadius: 20)
+//            .stroke(Color.gray, lineWidth: 2))
+      }
     }
 }
 
