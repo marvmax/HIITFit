@@ -11,7 +11,7 @@ struct HistoryView: View {
           .padding()
       }
       VStack {
-        Text("History")
+        Text(NSLocalizedString("History", comment: "view user activity"))
           .font(.title)
           .padding()
         Form {

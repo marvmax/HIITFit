@@ -8,10 +8,6 @@ struct ContentView: View {
 //        Text(Exercise.exercises[index].exerciseName)
         ExerciseView(index: index)
       }
-      ForEach(0..<Exercise.exercises.count) { index in
-//        Text(Exercise.exercises[index].videoName)
-        ExerciseView(index: index)
-      }
     }
     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
   }

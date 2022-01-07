@@ -6,21 +6,34 @@ struct Exercise {
 }
 
 enum ExerciseEnum: String {
-  case squat = "Squat"
-  case stepUp = "Step Up"
-  case burpee = "Burpee"
-  case sunSalute = "Sun Salute"
+  case squat
+  case stepUp
+  case burpee
+  case sunSalute
+  
+  var description: String {
+    switch self {
+    case .squat:
+      return NSLocalizedString("Squat", comment: "exercise")
+    case .stepUp:
+      return NSLocalizedString("Step Up", comment: "exercise")
+    case .burpee:
+      return NSLocalizedString("Burpee", comment: "exercise")
+    case .sunSalute:
+      return NSLocalizedString("Sun Salute", comment: "yoga stretch")
+    }
+  }
 }
 
 extension Exercise {
   static let exercises = [
-    Exercise(exerciseName: ExerciseEnum.squat.rawValue,
+    Exercise(exerciseName: String(describing: ExerciseEnum.squat),
              videoName: "squat"),
-    Exercise(exerciseName: ExerciseEnum.stepUp.rawValue,
+    Exercise(exerciseName: String(describing: ExerciseEnum.stepUp),
              videoName: "step-up"),
-    Exercise(exerciseName: ExerciseEnum.burpee.rawValue,
+    Exercise(exerciseName: String(describing: ExerciseEnum.burpee),
              videoName: "burpee"),
-    Exercise(exerciseName: ExerciseEnum.sunSalute.rawValue,
+    Exercise(exerciseName: String(describing: ExerciseEnum.sunSalute),
              videoName: "sun-salute")
   ]
 }
