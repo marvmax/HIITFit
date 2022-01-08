@@ -8,6 +8,9 @@ struct HeaderView: View {
       Text(titleText)
         .font(.largeTitle)
       HStack {
+        if selectedTab == 9 {
+          Image(systemName: "hand.wave")
+        }
         ForEach(0..<Exercise.exercises.count) { index in
           let fill = index == selectedTab ? ".fill" : ""
           Image(systemName: "\(index + 1).circle\(fill)")
@@ -24,7 +27,7 @@ struct HeaderView: View {
 struct HeaderView_Previews: PreviewProvider {
   static var previews: some View {
     Group {
-      HeaderView(selectedTab: .constant(0), titleText: "Squat")
+      HeaderView(selectedTab: .constant(9), titleText: "Squat")
         .previewLayout(.sizeThatFits)
       HeaderView(selectedTab: .constant(1), titleText: "Squat")
         .preferredColorScheme(.dark)
