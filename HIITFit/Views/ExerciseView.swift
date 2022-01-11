@@ -2,8 +2,9 @@ import SwiftUI
 import AVKit
 
 struct ExerciseView: View {
-  @Binding var selectedTab: Int
   @State private var rating = 0
+  @State var showHistory: Bool = false
+  @Binding var selectedTab: Int
   let index: Int
   let interval: TimeInterval = 30
   var lastExercise: Bool {
@@ -33,7 +34,11 @@ struct ExerciseView: View {
         RatingView(rating: $rating)
           .padding()
         Spacer()
-        Button(NSLocalizedString("History", comment: "view user activity")) { }
+        Button(NSLocalizedString("History", comment: "view user activity")) { showHistory.toggle()
+        }
+        .sheet(isPresented: $showHistory) {
+          HistoryView(showHistory: $showHistory)
+        }
         .padding()
       }
     }
@@ -42,7 +47,7 @@ struct ExerciseView: View {
 
 struct ExerciseView_Previews: PreviewProvider {
   static var previews: some View {
-    ExerciseView(selectedTab: .constant(1), index: 0)
+    ExerciseView(selectedTab: .constant(0), index: 0)
   }
 }
 
