@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct SuccessView: View {
+  @Environment(\.presentationMode) var presentationMode
+  @Binding var selectedTab: Int
     var body: some View {
       VStack {
         Spacer()
@@ -14,8 +16,9 @@ struct SuccessView: View {
           .foregroundColor(Color.gray)
           .multilineTextAlignment(.center)
         Spacer()
-        Button(action: {} ) {
-          Text("Continue")
+        Button("Continue") {
+          presentationMode.wrappedValue.dismiss()
+          selectedTab = 9
         }
       }
     }
@@ -23,7 +26,7 @@ struct SuccessView: View {
 
 struct SuccessView_Previews: PreviewProvider {
     static var previews: some View {
-        SuccessView()
+      SuccessView(selectedTab: .constant(0))
     }
 }
 

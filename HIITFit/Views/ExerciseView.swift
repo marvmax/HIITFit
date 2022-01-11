@@ -4,6 +4,7 @@ import AVKit
 struct ExerciseView: View {
   @State private var rating = 0
   @State var showHistory: Bool = false
+  @State var showSuccess: Bool = false
   @Binding var selectedTab: Int
   let index: Int
   let interval: TimeInterval = 30
@@ -27,7 +28,14 @@ struct ExerciseView: View {
         HStack(spacing: 150) {
           Button("Start Exercise") {}
           Button("Done") {
-            selectedTab = lastExercise ? 9 : selectedTab + 1
+            if lastExercise {
+              showSuccess.toggle()
+            } else {
+              selectedTab += 1
+            }
+          }
+          .sheet(isPresented: $showSuccess) {
+            SuccessView(selectedTab: $selectedTab)
           }
         }
         .font(.title3)
@@ -50,5 +58,3 @@ struct ExerciseView_Previews: PreviewProvider {
     ExerciseView(selectedTab: .constant(0), index: 0)
   }
 }
-
-
